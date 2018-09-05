@@ -1,1 +1,1 @@
-Pet project with studypet/bracket-checker usage
+**bchecker** - console utility is a pet project with studypet/bracket-checker usage
