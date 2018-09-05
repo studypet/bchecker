@@ -1,0 +1,37 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__.'/vendor/autoload.php';
+
+use Studypet\Tools;
+
+if (count($argv) < 2) {
+    echo "Brackets checker\n";
+    echo "Usage: \e[1m{$argv[0]} <filename>\n";
+    echo "       \e[1m<filename>\e[0m - file with you expression\n";
+    exit(0);
+} else {
+    try {
+
+        $expression = file_get_contents($argv[1]);
+        $result = Tools\BracketChecker::check($expression);
+
+    } catch (Exception $e) {
+
+        echo "Error: \e[1m\e[31m" . $e->getMessage() . "\n";
+        exit(1);
+
+    }
+
+    if ($result) {
+
+        echo "You expression is \e[1m\e[32mvalid\n";
+        exit(0);
+
+    } else {
+
+        echo "You expression is \e[1m\e[31minvalid\n";
+        exit(1);
+
+    }
+}
